@@ -12,6 +12,7 @@ import { SharedModule } from "./shared/shared.module";
 import { PokemonService } from "./services/pokemon.service";
 import { HeaderComponent } from './header/header.component';
 import { FlipCardModule } from "./components/flip-card/flip-card.module";
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,7 @@ import { FlipCardModule } from "./components/flip-card/flip-card.module";
         PokemonDetailComponent,
         HeaderComponent
     ],
-    providers: [PokemonService],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' },PokemonService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

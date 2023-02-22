@@ -4,7 +4,6 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
-  { path: 'Inicio', component: HeaderComponent },
   { path: 'Pokedex', component: PokemonListComponent}
 
 ];
