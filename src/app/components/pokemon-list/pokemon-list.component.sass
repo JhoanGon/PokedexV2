@@ -112,3 +112,34 @@
   color: $white
   font-size: 25px
   font-weight: bold
+
+@media only screen and (max-width: 768px)
+    /* estilos para pantallas menores a 768px */
+    .header
+        height: 100px
+
+@media only screen and (max-width: 480px)
+    /* estilos para pantallas menores a 480px */
+    .header
+        height: 80px
+
+    .bg__pokeball
+        height: 100px
+        top: -15px
+        right: -10px
+
+    .pokemon__list
+        margin-left: 10px
+        margin-right: 10px
+
+    .card
+      display: flex
+      flex-direction: row
+
+    .card__img
+        width: 50px
+        padding-right: 1.5rem
+
+    .card_img .imgPoke
+        width: 100px
+        height: 100px

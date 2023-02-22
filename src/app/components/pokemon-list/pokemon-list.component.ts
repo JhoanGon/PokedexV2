@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { forkJoin, Observable, catchError, of } from 'rxjs';
 import { PokemonDetail } from '../../models/pokemon.detail';
@@ -8,6 +7,7 @@ import { PokemonList } from '../../models/pokemon.list';
 import { PokemonService } from '../../services/pokemon.service';
 import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.component';
 import { MatDialog } from '@angular/material/dialog';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-pokemon-list',

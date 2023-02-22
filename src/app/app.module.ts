@@ -13,6 +13,8 @@ import { PokemonService } from "./services/pokemon.service";
 import { HeaderComponent } from './header/header.component';
 import { FlipCardModule } from "./components/flip-card/flip-card.module";
 import { APP_BASE_HREF } from '@angular/common';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
@@ -31,7 +33,9 @@ import { APP_BASE_HREF } from '@angular/common';
         ReactiveFormsModule,
         SharedModule,
         FlipCardModule,
-        AppRoutingModule
+        AppRoutingModule,
+        MatGridListModule,
+        FlexLayoutModule
       ]
 })
 export class AppModule { }
