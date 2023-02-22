@@ -1,0 +1,74 @@
+.overlay
+  //position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 9999
+
+body
+  &.overflow-hidden
+    overflow: hidden
+
+.containerBackground
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  height: 100vh
+  background-image: url("../../assets/images/backgroundPokemon.jpg")
+  background-size: cover
+  background-position: center
+
+.textoPokemon
+  color: #000
+  font-size: 4rem
+  text-align: center
+  margin: 0
+
+.btnBuscar
+  text-decoration: none
+  display: flex
+  padding: 8px 30px
+  color: #fff
+  font-size: 1.2em
+  font-weight: 500
+  letter-spacing: 2px
+  background: #110011
+  border-radius: 20px
+  &:hover
+    background: #3d003d
+
+/*.slider
+ position: relative
+ width: 200px
+ height: 50px
+ transform-style: preserve-3d
+ animation: rotate 30s linear infinite
+ margin-bottom: 400px
+ span
+ position: absolute
+ top: 0
+ left: 0
+ width: 100%
+ height: 100%
+ transform-origin: center
+ transform-style: preserve-3d
+ transform: rotateY(calc(var(--i)*45deg)) translateZ(300px)
+ img
+ //position: absolute
+ top: 0
+ left: 0
+ width: 100%
+ height: auto
+ border-radius: 10px
+ //object-fit: cover
+ transition: 2s
+ &:hover img
+ transform: translateY(-50px) scale(1.2)
+
+/*@keyframes rotate
+ from
+ transform: perspective(1000px) rotateY(0)
+ to
+ transform: perspective(1000px) rotateY(360deg)

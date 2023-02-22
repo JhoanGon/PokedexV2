@@ -1,0 +1,104 @@
+<flip-card>
+  <flip-card-front class="{{'bg-color-'+ getPrincipalType(pokemon.types) + '-light'}}">
+    <div class="imgPokemon">
+      <h2>{{ pokemon.name}}</h2>
+      <img class="Background" src="../../../assets/images/pokeball-background.png" alt="">
+      <img *ngIf="!classicMode" [src]="'https://img.pokemondb.net/sprites/home/normal/' + pokemon.name
+          .replace('mr_mime', 'mr.mime')
+          .replace('ho_oh', 'ho-oh')
+          .replace('deoxys_normal', 'deoxys')
+          .replace('wormadan_plant', 'wormadan')
+          .replace('porygon_z', 'porygon-z')
+          .replace('giratina_altered', 'giratina')
+          .replace('shaymin_land', 'shaymin')
+          .replace('darmanitan_standart', 'darmanitan')
+          .replace('tornadus_incarnate', 'tornadus')
+          .replace('thundurus_incarnate', 'thundurus')
+          .replace('landorus_incarnate', 'landorus')
+          .replace('meloetta_aria', 'meloetta')
+          .replace('keldeo_ordinary', 'keldeo')
+          .replace('aegislash_shield', 'aegislash')
+          .replace('meowstic_male', 'meowstic')
+          .replace('pumpkaboo_average', 'pumpkaboo')
+          .replace('gourgeist_average', 'gourgeist')
+          .replace('zygarde_50', 'zygarde')
+          .replace('oricorio_baile', 'oricorio')
+          .replace('lycanroc_midday', 'lycanroc')
+          .replace('wishiwashi_solo', 'wishiwashi')
+          .replace('type_null', 'typenull')
+          .replace('minior_red', 'minior-red')
+          .replace('jangmo_o', 'jangmo-o')
+          .replace('hakamo_o', 'hakamo-o')
+          .replace('mimikyu_disguised', 'mimikyu-totem')
+          .replace('kommo_o', 'kommo-o')
+          .replace('tapu_koko', 'tapukoko')
+          .replace('tapu_lele', 'tapulele')
+          .replace('tapu_bulu', 'tapubulu')
+          .replace('tapu_fini', 'tapufini')
+          .replace('toxtricity_amped', 'toxtricity') + '.png'" [alt]="pokemon.name">
+    </div>
+    <div class="infoPokemon">
+      <div class="sheet__tab">
+        <div class="sheet__item">
+          <div class="color-white sheet__item_label">Alto: </div>
+          <div class="color-white sheet__item_label">Ancho: </div>
+          <div class="color-white sheet__item_label">Habilidades: </div>
+        </div>
+        <div class="sheet__item">
+          <div class="color-white sheet__item_label">{{pokemon.height}} cm</div>
+          <div class="color-white sheet__item_label">{{pokemon.weight}} cm</div>
+          <div class="color-white sheet__item_label Habilidades" [innerHTML]="getAbilities()"></div>
+        </div>
+      </div>
+    </div>
+  </flip-card-front>
+  <flip-card-back class="{{'bg-color-'+ getPrincipalType(pokemon.types) + '-light'}}">
+    <div class="sheet__progress w-100">
+      <div class="w-70 color-white sheet__item_label">HP:</div>
+      <div class="w-80">
+        <app-progress-bar [color]="getPrincipalType(pokemon.types)"
+          [value]="pokemon.stats[5].base_stat"></app-progress-bar>
+      </div>
+    </div>
+
+    <div class="sheet__progress w-100">
+      <div class="w-70 color-white sheet__item_label">Attack: </div>
+      <div class="w-80">
+        <app-progress-bar [color]="getPrincipalType(pokemon.types)"
+          [value]="pokemon.stats[4].base_stat"></app-progress-bar>
+      </div>
+    </div>
+
+    <div class="sheet__progress w-100">
+      <div class="w-70 color-white sheet__item_label">Defense:</div>
+      <div class="w-80">
+        <app-progress-bar [color]="getPrincipalType(pokemon.types)"
+          [value]="pokemon.stats[3].base_stat"></app-progress-bar>
+      </div>
+    </div>
+
+    <div class="sheet__progress w-100">
+      <div class="w-70 color-white sheet__item_label">Sp. Attack:</div>
+      <div class="w-80">
+        <app-progress-bar [color]="getPrincipalType(pokemon.types)"
+          [value]="pokemon.stats[2].base_stat"></app-progress-bar>
+      </div>
+    </div>
+
+    <div class="sheet__progress w-100">
+      <div class="w-70 color-white sheet__item_label">Sp. Defense:</div>
+      <div class="w-80">
+        <app-progress-bar [color]="getPrincipalType(pokemon.types)"
+          [value]="pokemon.stats[1].base_stat"></app-progress-bar>
+      </div>
+    </div>
+
+    <div class="sheet__progress w-100">
+      <div class="w-70 color-white sheet__item_label">Speed:</div>
+      <div class="w-80">
+        <app-progress-bar [color]="getPrincipalType(pokemon.types)"
+          [value]="pokemon.stats[0].base_stat"></app-progress-bar>
+      </div>
+    </div>
+  </flip-card-back>
+</flip-card>

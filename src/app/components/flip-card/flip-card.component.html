@@ -1,0 +1,16 @@
+<div class="container">
+  <div [ngClass]="toggleProperty ? 'flipped' : ''" class="card">
+    <div class="front">
+      <ng-content select="flip-card-front"></ng-content>
+      <div class="arrow-icon chevron" (click)="toggle()">
+        <!--<i class="bi bi-arrow-right-circle"></i>-->
+      </div>
+    </div>
+    <div class="back">
+      <ng-content select="flip-card-back"></ng-content>
+      <div class="arrow-icon chevron" (click)="toggle()">
+        <!--<img src="../../../assets/images/" alt="">-->
+      </div>
+    </div>
+  </div>
+</div>
