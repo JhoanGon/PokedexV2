@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { forkJoin, Observable, catchError, of } from 'rxjs';
@@ -21,6 +21,7 @@ export class PokemonListComponent implements OnInit {
   total: number;
   page = 0;
   nombrePokemons: string [] =[];
+  valor: string ;
 
   private offset: number;
   isLoading: boolean;
@@ -32,7 +33,9 @@ export class PokemonListComponent implements OnInit {
   isSearching = false;
   showFirstLastButtons = true;
 
-
+  cols: string;
+  rowHeight: string;
+  gutterSize: string;
 
   constructor(
     private pokemonService: PokemonService,
@@ -40,10 +43,14 @@ export class PokemonListComponent implements OnInit {
     private _dialog: MatDialog
   ) {
     this.page = 0;
+    this.cols = "";
+    this.rowHeight = "";
+    this.gutterSize = "";
   }
 
   ngOnInit(): void {
     this.getPage(this.page * 1);
+    this.actualizarValor();
   }
   onPageChange(event: { pageIndex: number; }) {
     this.page = event.pageIndex;
@@ -137,4 +144,28 @@ export class PokemonListComponent implements OnInit {
     });
   }
 
+  @HostListener('window:resize')
+  actualizarValor(): void {
+    if (window.innerWidth < 768) {
+      this.cols = "1";
+      this.rowHeight = "1:1"
+      this.gutterSize = "5px"
+    } else if (window.innerWidth < 992) {
+      this.cols = "1";
+      this.rowHeight = "1:1"
+      this.gutterSize = "5px"
+    } else if (window.innerWidth < 1400){
+      this.cols = "2";
+      this.rowHeight = "2:1"
+      this.gutterSize = "5px"
+    }else {
+      this.cols = "3";
+      this.rowHeight = "3:1"
+      this.gutterSize = "16px"
+    }
+    console.log(`cols: ${this.cols}`);
+  }
+
 }
+
+
