@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { forkJoin, Observable, catchError, of } from 'rxjs';
@@ -8,6 +8,7 @@ import { PokemonService } from '../../services/pokemon.service';
 import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -40,7 +41,8 @@ export class PokemonListComponent implements OnInit {
   constructor(
     private pokemonService: PokemonService,
     private snackBar: MatSnackBar,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.page = 0;
     this.cols = "";
@@ -50,7 +52,9 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPage(this.page * 1);
-    this.actualizarValor();
+    if (isPlatformBrowser(this.platformId)) {
+      this.actualizarValor();
+    }
   }
   onPageChange(event: { pageIndex: number; }) {
     this.page = event.pageIndex;
