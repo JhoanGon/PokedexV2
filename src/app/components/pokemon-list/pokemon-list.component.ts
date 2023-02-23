@@ -168,6 +168,7 @@ export class PokemonListComponent implements OnInit {
       this.gutterSize = "16px"
     }
     console.log(`cols: ${this.cols}`);
+    console.log("Prueba");
   }
 
 }
